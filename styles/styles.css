@@ -1,0 +1,456 @@
+/* General Classes */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Poppins:wght@300&family=Raleway:wght@300&family=Roboto:wght@300;400&display=swap');
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-family: "Roboto Mono", "Roboto Mono", "Vazirmatn", monospace;
+    background-color: #323437;
+    color: #d1d0c5;
+    overflow: hidden;
+}
+
+h1 {
+    color: #bcbcbc;
+    text-align: center; 
+}
+
+h2 {
+    color: #ffee8e;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+button {
+    padding: 16px 32px;
+    background-color: #535353;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #2a2a2a;
+}
+
+/* Import Config Button Classes */
+
+button#import-config-btn {
+    position: fixed;
+    left: 150px;
+    top: 0;
+}
+
+button#importTextBtn {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+button#importFromTextAreaBtn {
+    position: fixed;
+    top: 0;
+    left: 325px;
+}
+
+/* Restart Button Classes */
+
+#restart-game {
+    position: relative;
+    color: #d1d0c5;
+    cursor: pointer;
+    font-size: 30px;
+    top: 300px;
+    width: 4vw;
+    left: 49%;
+}
+
+.bi-arrow-clockwise::before {
+    font-weight: bold !important;
+}
+
+/* Text Input Classes */
+
+p#text-input {
+    position: absolute;
+    top : 200px;
+    font-size: 30px; 
+    margin: 30px 50px 0 50px;
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+letter.correct {
+    color: lightgreen
+}
+
+letter.incorrect {
+    color: lightcoral;
+    text-decoration: underline;
+}
+
+letter.final {
+    color: lightcoral;
+    text-decoration: underline;
+}
+
+
+/* stats Classes */
+
+
+.stats {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    bottom: 2%;
+    font-size: 26px;
+    width: 100%;
+}
+
+#cursor {
+    width: 0.05em;
+    height: 0.8em; 
+    display: inline-block;
+    margin-right: -1px;
+    border-right: 2px solid; 
+    animation: blink 1s step-end infinite;
+    color: rgb(255, 255, 97);
+}
+
+@keyframes blink {
+    50% {
+        border-right-color: transparent;
+    }
+}
+/* 3D Cube */
+
+#cubeCanvas {
+    position: fixed;
+    bottom: 0px;
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+textarea {
+    width: 40%;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    font-family: "Roboto Mono", "Roboto Mono", "Vazirmatn", monospace;
+    resize: none;
+    z-index : 10;
+    position : fixed;
+    left : 30%;
+  }
+
+  #validateTextAreaBtn {
+    position : fixed;
+    left : 46%;
+    bottom: 250px;
+  }
+
+  #wordCountMessage {
+    display: none; 
+    color: rgba(202, 44, 44, 1);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(215, 212, 212);
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    color: rgb(100, 95, 95)
+  }
+
+  #icons{
+    cursor: pointer;
+    position: absolute;
+    top : 0;
+    right : 0;
+    padding : 20px;
+    font-weight: 200;
+    font-size: 25px;
+  }
+
+  #icons::before {
+    content: "\2630";
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    position: fixed;
+    top : 5%;
+    right: -200px;
+    transition: 0.25s;
+    background-color: #2a2a2a98;
+    height: 150px;
+    width : 150px;
+    border-radius: 20px;
+
+  }
+
+  .open #icons:before{
+    content: "\2715";
+  }
+
+  nav.open ul {
+    right : 15px;
+  }
+
+
+.blur-background {
+    filter: blur(8px);
+}
+
+.clear-element {
+    position: relative; 
+    z-index: 2; 
+}
+
+.overlay {
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+
+@media screen and (max-width: 827px) {
+    #restart-game {
+        position: relative;
+        color: #d1d0c5;
+        cursor: pointer;
+        font-size: 25px;
+        top: 325px;
+        width: 4vw;
+        left: 49%;
+    }
+
+    .stats{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        font-size: 24px;
+        height: 500px;
+    }
+
+    p#text-input {
+        position: absolute;
+        top : 200px;
+        font-size: 26px; 
+        margin: 30px 50px 0 50px;
+        -webkit-user-select: none;  
+        -moz-user-select: none;     
+        -ms-user-select: none;      
+        user-select: none;
+    }
+
+    nav ul {
+        position: fixed;
+        top : 5%;
+        right: -200px;
+        transition: 0.25s;
+        background-color: #2a2a2a98;
+        height: 125px;
+        width : 125px;
+        border-radius: 20px;
+    
+      }
+
+      #icons{
+        cursor: pointer;
+        position: absolute;
+        top : 0;
+        right : 0;
+        padding : 20px;
+        font-weight: 200;
+        font-size: 20px;
+      }
+
+      li {
+        list-style: none;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+      }
+
+      h1 {
+        color: #bcbcbc;
+        text-align: center; 
+        font-size: 22px;
+    }
+    
+    h2 {
+        color: #ffee8e;
+        text-align: center;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 712px) {
+
+
+    #restart-game {
+        position: relative;
+        color: #d1d0c5;
+        cursor: pointer;
+        font-size: 20px;
+        top: 325px;
+        width: 4vw;
+        left: 49%;
+    }
+
+    .stats{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        font-size: 20px;
+        height: 500px;
+    }
+
+    p#text-input {
+        position: absolute;
+        top : 200px;
+        font-size: 22px; 
+        margin: 30px 50px 0 50px;
+        -webkit-user-select: none;  
+        -moz-user-select: none;     
+        -ms-user-select: none;      
+        user-select: none;
+    }
+}
+
+@media screen and (max-width: 615px) {
+
+
+    .stats{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        font-size: 18px;
+        height: 500px;
+    }
+
+    p#text-input {
+        position: absolute;
+        top : 200px;
+        font-size: 20px; 
+        margin: 30px 50px 0 50px;
+        -webkit-user-select: none;  
+        -moz-user-select: none;     
+        -ms-user-select: none;      
+        user-select: none;
+    }
+}
+
+@media screen and (max-width: 510px) {
+
+
+    .stats{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        font-size: 14px;
+        height: 500px;
+    }
+
+    p#text-input {
+        position: absolute;
+        top : 200px;
+        font-size: 18px; 
+        margin: 30px 50px 0 50px;
+        -webkit-user-select: none;  
+        -moz-user-select: none;     
+        -ms-user-select: none;      
+        user-select: none;
+    }
+
+    nav ul {
+        position: fixed;
+        top : 5%;
+        right: -200px;
+        transition: 0.25s;
+        background-color: #2a2a2a98;
+        height: 100px;
+        width : 100px;
+        border-radius: 20px;
+        padding: 0;
+      }
+
+      #icons{
+        cursor: pointer;
+        position: absolute;
+        top : 0;
+        right : 0;
+        padding : 20px;
+        font-weight: 200;
+        font-size: 16px;
+      }
+
+      li {
+        list-style: none;
+        margin-bottom: 5px;
+        margin-top: 17px;
+        margin-left: 21px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 8px;
+      }
+}
+
+@media screen and (max-width: 370px) {
+
+
+    .stats{
+        display: block;
+        position: relative;
+        font-size: 14px;
+        height: 500px;
+        left: 50%;
+        transform: translateX(-17%);
+        top: 450px;
+    }
+
+    #restart-game {
+        position: relative;
+        color: #d1d0c5;
+        cursor: pointer;
+        font-size: 20px;
+        top: 350px;
+        width: 4vw;
+        left: 49%;
+    }
+
+}

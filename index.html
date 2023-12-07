@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <title>Kube</title>
+        <link rel="icon" href="./image/kube_logo.png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+        
+        <link rel="stylesheet" href="./styles/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    </head>
+    <body>
+        <h1>Kube</h1>
+        <h2>TYPE FASTEST!</h2>
+            
+        <!-- Textbox -->
+        <span id="cursor"></span>
+        <p id="text-input"></p>
+
+        <nav id="nav">
+            
+            <ul>
+                <li id="import-config-btn"><a href="#">import config</a></li>
+                <li id="importTextBtn"><a href="#">import text</a></li>
+                <li id="importFromTextAreaBtn"><a href="#">import area</a></li>
+            </ul>
+            <div id = "icons"></div>
+        </nav>
+        
+        
+        <!-- Reset -->
+        <div id="restart-game" onclick="initializeGame()">
+            <div class="bi bi-arrow-clockwise"></div>
+        </div>
+
+        
+        <div id="textAreaContainer" style="display: none;">
+            <textarea id="textAreaInput" rows="4" cols="50"></textarea>
+            <button id="validateTextAreaBtn">Confirm</button>
+            <div id="wordCountMessage"></div>
+        </div>
+        
+        
+        
+         
+        
+        <input type="file" id="fileInput" accept=".txt" style="display: none;" />
+
+        <!-- 3D Cube -->
+        
+
+        <div class="stats">
+            <div id="timer"></div>
+            <div id="wpm"></div>
+            <div id="accuracy"></div>
+        </div>
+
+        
+        <script src="./scripts/jeu.js" defer></script>
+    </body>
+</html>
