@@ -1,3 +1,4 @@
+// Array of predefined texts for the typing game
 const texts = [
   "Au clair de lune, le kangourou philosophe a décidé de jouer du piano sur la plage, étonnant les poissons volants avec sa mélodie d'algues marines chantantes.",
   "Lors d'un après-midi ensoleillé, le chapeau magique s'est mis à raconter des anecdotes sur le temps où il était un parapluie, dansant dans les rues pavées d'une ville perdue.",
@@ -22,6 +23,7 @@ const accuracydisplay = document.getElementById("accuracy");
 const links = document.querySelectorAll("nav li");
 var intervalId;
 
+// Game state object
 var game = {
   randomText: "",
   userText: "",
@@ -32,7 +34,7 @@ var game = {
   customTexts: null,
 };
 
-//###initialise le jeu###
+// Initialize game state and UI
 function initializeGame() {
   clearInterval(intervalId);
 
@@ -77,7 +79,7 @@ function initializeGame() {
   accuracydisplay.textContent = "Accuracy: 0.00%";
 }
 
-//###Demarre le jeu###
+// Starts the game, initializes the timer
 function startGame() {
   if (!game.hasStarted) {
     game.hasStarted = true;
@@ -86,12 +88,12 @@ function startGame() {
   }
 }
 
-//###Fin du jeu###
+// Ends the game and clears the interval for updating game stats
 function endGame() {
   clearInterval(intervalId);
 }
 
-//###Réinitialise le jeu###
+// Resets the user's text and related UI elements for a new game
 function resetGame() {
   game.userText = "";
 
@@ -102,11 +104,12 @@ function resetGame() {
   game.hasStarted = false;
 }
 
+// Prepares for the next game
 function nextGame() {
   initializeGame();
 }
 
-//###Evalue chaques caractères au texte de référence et leur applique un style###
+// Evaluates user's key input and updates game state and UI accordingly
 function evaluateInput(event) {
   event.stopPropagation();
 
@@ -138,10 +141,12 @@ function evaluateInput(event) {
   }
 }
 
+// Called once during initial game setup
 initializeGame();
+// Event listener for keydown to handle user input
 document.addEventListener("keydown", evaluateInput);
 
-//###Actualise la position du curseur###
+// Updates the position of the cursor in the text input area
 function updateCursorPosition() {
   let cursor = document.getElementById("cursor");
   let currentPos = game.userText.length;
@@ -158,7 +163,7 @@ function updateCursorPosition() {
   }
 }
 
-//###Actualise les stats de la partie###
+// Continuously updates the game stats (time, WPM, accuracy)
 function updateStats() {
   const currentTime = Date.now();
   const timeElapsed = currentTime - game.startTime;
@@ -179,6 +184,7 @@ function updateStats() {
   }
 }
 
+// Checks the word count of custom text and enables/disables the validation button
 function checkWordCount() {
   const textArea = document.getElementById("textAreaInput");
   const words = textArea.value.trim().split(/\s+/);
@@ -196,80 +202,101 @@ function checkWordCount() {
   }
 }
 
+// Add an event listener to the text area input for checking word count on input
 document.getElementById("textAreaInput").addEventListener("input", checkWordCount);
 
+// On DOM content loaded, check the word count in the text area
 document.addEventListener("DOMContentLoaded", function () {
   checkWordCount();
 });
 
+// Event listener for opening the custom text import from text area
 document.getElementById("importFromTextAreaBtn").addEventListener("click", function () {
-    const overlay = document.createElement("div");
-    overlay.classList.add("overlay");
-    document.body.appendChild(overlay);
+  // Create an overlay element for UI effect
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  document.body.appendChild(overlay);
 
-    document.querySelectorAll("body > *").forEach((el) => {
-      if (!el.contains(document.getElementById("textAreaInput")) && !el.contains(document.getElementById("validateTextAreaBtn"))) {
-        el.classList.add("blur-background");
-      }
-    });
+  // Blur the background except for the text area and its button
+  document.querySelectorAll("body > *").forEach((el) => {
+    if (!el.contains(document.getElementById("textAreaInput")) && !el.contains(document.getElementById("validateTextAreaBtn"))) {
+      el.classList.add("blur-background");
+    }
+  });
 
-    document.getElementById("textAreaInput").classList.add("clear-element");
-    document.getElementById("validateTextAreaBtn").classList.add("clear-element");
+  // Highlight the text area and validate button
+  document.getElementById("textAreaInput").classList.add("clear-element");
+  document.getElementById("validateTextAreaBtn").classList.add("clear-element");
 });
 
+// Event listener for validating and closing the custom text import from text area
 document.getElementById("validateTextAreaBtn").addEventListener("click", function () {
-    document.querySelectorAll(".blur-background").forEach((el) => el.classList.remove("blur-background"));
-    document.querySelectorAll(".clear-element").forEach((el) => el.classList.remove("clear-element"));
-    document.querySelector(".overlay").remove();
+  // Remove the blur effect and overlay
+  document.querySelectorAll(".blur-background").forEach((el) => el.classList.remove("blur-background"));
+  document.querySelectorAll(".clear-element").forEach((el) => el.classList.remove("clear-element"));
+  document.querySelector(".overlay").remove();
 });
 
+// Event listener for toggling the navigation menu
 icons.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
+// Event listeners for each link in the navigation to close the menu on click
 links.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
   });
 });
 
+// Event listener for opening the text area container for custom text import
 importFromTextAreaBtn.addEventListener("click", function () {
   textAreaContainer.style.display = "block";
   document.getElementById("textAreaInput").focus();
 
+  // Disable keyboard input evaluation when text area is open
   document.removeEventListener("keydown", evaluateInput);
 });
 
+// Event listener for validating custom text from text area and restarting the game
 validateTextAreaBtn.addEventListener("click", function () {
   const textAreaContent = document.getElementById("textAreaInput").value;
   if (textAreaContent) {
+    // Split the text area content into lines and use them as custom texts
     game.customTexts = textAreaContent.split("\n");
     initializeGame();
   }
   textAreaContainer.style.display = "none";
+  // Re-enable keyboard input evaluation
   document.addEventListener("keydown", evaluateInput);
 });
 
+// Event listener for triggering the file input when the corresponding element is clicked
 importTextElement.addEventListener("click", function () {
   fileInputElement.click();
 });
 
+// Event listener for handling file input changes
 fileInputElement.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
+    // Read the selected file
     const reader = new FileReader();
     reader.onload = function (e) {
+      // Use the file content as custom texts
       const text = e.target.result;
       game.customTexts = text.split("\n");
       initializeGame();
     };
     reader.readAsText(file);
-  } 
-  else {
+  } else {
+    // Initialize the game without custom texts if no file is selected
     initializeGame();
   }
 });
 
+
+// Function to initialize the game with a specific text
 function initializeGameWithText(text) {
   game.randomText = text;
   initializeGame();

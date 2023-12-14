@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Meta tags for character set, viewport settings -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-        <title>Kube</title>
+        <title>Kube</title> <!-- Title of the page -->
+
+        <!-- Link to favicon -->
         <link rel="icon" href="./image/kube_logo.png">
+
+        <!-- Link to Bootstrap icons for UI elements -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
         
+        <!-- Link to the main stylesheet -->
         <link rel="stylesheet" href="./styles/styles.css">
+
+        <!-- Link to the Three.js library for 3D graphics -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     </head>
     <body>
+        <!-- Main header of the page -->
         <h1>Kube</h1>
+        <!-- Sub-header -->
         <h2>TYPE FASTEST!</h2>
             
-        <!-- Textbox -->
-        <span id="cursor"></span>
-        <p id="text-input"></p>
+        <!-- Textbox for displaying typing text -->
+        <span id="cursor"></span> <!-- Cursor for typing effect -->
+        <p id="text-input"></p> <!-- Container for the text input -->
 
+        <!-- Navigation menu -->
         <nav id="nav">
-            
             <ul>
                 <li id="import-config-btn"><a href="#">import config</a></li>
                 <li id="importTextBtn"><a href="#">import text</a></li>
                 <li id="importFromTextAreaBtn"><a href="#">import area</a></li>
             </ul>
-            <div id = "icons"></div>
+            <div id="icons"></div> <!-- Container for icons (menu toggle) -->
         </nav>
         
-        
-        <!-- Reset -->
+        <!-- Reset button -->
         <div id="restart-game" onclick="initializeGame()">
-            <div class="bi bi-arrow-clockwise"></div>
+            <div class="bi bi-arrow-clockwise"></div> <!-- Icon for reset button -->
         </div>
 
-        
+        <!-- Container for text area input and confirmation button -->
         <div id="textAreaContainer" style="display: none;">
             <textarea id="textAreaInput" rows="4" cols="50"></textarea>
             <button id="validateTextAreaBtn">Confirm</button>
-            <div id="wordCountMessage"></div>
+            <div id="wordCountMessage"></div> <!-- Message display for word count validation -->
         </div>
         
-        
-        
-         
-        
+        <!-- Hidden file input for importing text files -->
         <input type="file" id="fileInput" accept=".txt" style="display: none;" />
 
-        <!-- 3D Cube -->
-        
-
+        <!-- Display area for game statistics -->
         <div class="stats">
-            <div id="timer"></div>
-            <div id="wpm"></div>
-            <div id="accuracy"></div>
+            <div id="timer"></div> <!-- Timer display -->
+            <div id="wpm"></div> <!-- Words per minute display -->
+            <div id="accuracy"></div> <!-- Accuracy display -->
         </div>
 
-        
+        <!-- Link to the main JavaScript file -->
         <script src="./scripts/jeu.js" defer></script>
     </body>
 </html>
+

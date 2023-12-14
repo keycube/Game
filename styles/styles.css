@@ -247,210 +247,96 @@ textarea {
 }
 
 
-@media screen and (max-width: 827px) {
-    #restart-game {
-        position: relative;
-        color: #d1d0c5;
-        cursor: pointer;
-        font-size: 25px;
-        top: 325px;
-        width: 4vw;
-        left: 49%;
-    }
-
-    .stats{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        font-size: 24px;
-        height: 500px;
-    }
-
-    p#text-input {
-        position: absolute;
-        top : 200px;
-        font-size: 26px; 
-        margin: 30px 50px 0 50px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none;
-    }
-
-    nav ul {
-        position: fixed;
-        top : 5%;
-        right: -200px;
-        transition: 0.25s;
-        background-color: #2a2a2a98;
-        height: 125px;
-        width : 125px;
-        border-radius: 20px;
-    
-      }
-
-      #icons{
-        cursor: pointer;
-        position: absolute;
-        top : 0;
-        right : 0;
-        padding : 20px;
-        font-weight: 200;
-        font-size: 20px;
-      }
-
-      li {
-        list-style: none;
-        margin-bottom: 30px;
-        margin-top: 10px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 12px;
-      }
-
-      h1 {
-        color: #bcbcbc;
-        text-align: center; 
-        font-size: 22px;
-    }
-    
-    h2 {
-        color: #ffee8e;
-        text-align: center;
-        font-size: 1em;
-    }
-}
-
 @media screen and (max-width: 712px) {
-
-
-    #restart-game {
-        position: relative;
-        color: #d1d0c5;
-        cursor: pointer;
-        font-size: 20px;
-        top: 325px;
-        width: 4vw;
-        left: 49%;
-    }
-
-    .stats{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        font-size: 20px;
-        height: 500px;
-    }
-
+    #restart-game,
+    .stats,
     p#text-input {
-        position: absolute;
-        top : 200px;
-        font-size: 22px; 
-        margin: 30px 50px 0 50px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none;
+        font-size: 20px;
     }
 }
 
 @media screen and (max-width: 615px) {
-
-
-    .stats{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        font-size: 18px;
-        height: 500px;
-    }
-
+    .stats,
     p#text-input {
-        position: absolute;
-        top : 200px;
-        font-size: 20px; 
-        margin: 30px 50px 0 50px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none;
+        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 510px) {
-
-
     .stats{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        font-size: 14px;
-        height: 500px;
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-end;
+		font-size: 14px;
+		height: 500px;
     }
 
-    p#text-input {
-        position: absolute;
-        top : 200px;
-        font-size: 18px; 
-        margin: 30px 50px 0 50px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none;
-    }
+p#text-input{
+	position: absolute;
+	top: 200px;
+	font-size:18px;
+	margin: 30px 50px 0 50px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
-    nav ul {
-        position: fixed;
-        top : 5%;
-        right: -200px;
-        transition: 0.25s;
-        background-color: #2a2a2a98;
-        height: 100px;
-        width : 100px;
-        border-radius: 20px;
-        padding: 0;
-      }
+nav ul{
+	position: fixed;
+	top: 5%;
+	right: -200px;
+	transition: 0.25s;
+	background-color: #2a2a2a98;
+	height: 100px;
+	width: 100px;
+	border-radius: 20px;
+	padding : 0;
+}
 
-      #icons{
-        cursor: pointer;
-        position: absolute;
-        top : 0;
-        right : 0;
-        padding : 20px;
-        font-weight: 200;
-        font-size: 16px;
-      }
+#icons{
+  cursor: pointer;
+  position: absolute;
+  top : 0;
+  right : 0;
+  padding: 20px;
+  font-weight: 200;
+  font-size: 16px;
+}
 
-      li {
-        list-style: none;
-        margin-bottom: 5px;
-        margin-top: 17px;
-        margin-left: 21px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 8px;
-      }
+li{
+  list-style: none;
+  margin-bottom: 5px;
+  margin-top: 17px;
+  margin-left: 21px;
+  font-family: 'Roboto', sans - serif;
+  font-size: 8px;
+}
+h1 {
+    color: #bcbcbc;
+    text-align: left;
+    font-size: 16px;
+    padding: 10px;
+}
+
+h2 {
+    color: #ffee8e;
+    text-align: left;
+    font-size: 1em;
+    padding: 10px;
+}
 }
 
 @media screen and (max-width: 370px) {
-
-
-    .stats{
+    .stats {
         display: block;
         position: relative;
-        font-size: 14px;
-        height: 500px;
+        top: 450px;
         left: 50%;
         transform: translateX(-17%);
-        top: 450px;
     }
 
     #restart-game {
-        position: relative;
-        color: #d1d0c5;
-        cursor: pointer;
-        font-size: 20px;
         top: 350px;
-        width: 4vw;
-        left: 49%;
     }
-
 }
